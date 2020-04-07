@@ -7,7 +7,8 @@
     "dev": "parcel src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "format": "prettier \"src/**/*.{js,html}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "typecheck": "tsc --noEmit",
+    "lint": "tslint --project",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
@@ -37,7 +38,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format"
+      "pre-commit": "npm run typecheck&&npm run format"
     }
   },
   "keywords": [],
@@ -48,18 +49,19 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "babel-eslint": "^10.1.0",
+    "@types/reach__router": "^1.3.4",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
     "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.2"
+    "prettier": "^2.0.2",
+    "tslint": "^6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.2.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
