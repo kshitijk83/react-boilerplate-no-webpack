@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import pet from '@frontendmasters/pet';
 import { navigate } from '@reach/router';
-import Modal from './Modal';
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
 import ThemeContext from './ThemeContext';
+
+const Modal = lazy(() => import('./Modal'));
 
 class Details extends React.Component {
   state = {
@@ -37,15 +38,7 @@ class Details extends React.Component {
     if (this.state.loading) {
       return <h1>loading...</h1>;
     }
-    const {
-      animal,
-      breed,
-      location,
-      description,
-      name,
-      media,
-      showModal,
-    } = this.state;
+    const { animal, breed, description, name, media, showModal } = this.state;
     return (
       //   <pre>
       //     <code>{JSON.stringify(this.props, null, 4)}</code>
